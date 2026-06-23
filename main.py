@@ -3,8 +3,6 @@ import random
 import time
 from collections import deque
 
-from dotenv import load_dotenv
-
 from telegram import Update, ReplyKeyboardMarkup, BotCommand
 from telegram.ext import (
     ApplicationBuilder,
@@ -708,12 +706,10 @@ async def drink(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # await reply(update, "У вас є Діма, просіт го")
 
 def main():
-    load_dotenv()
-    
     API_TOKEN = os.getenv("API_TOKEN")
     if not API_TOKEN:
         raise ValueError("API_TOKEN environment variable is not set")
-    
+
     app = ApplicationBuilder().token(API_TOKEN).build()
 
     # handlers
