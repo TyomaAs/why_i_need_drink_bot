@@ -602,6 +602,10 @@ async def handle_misc(update: Update, text: str, user):
         await reply(update, f"иу {nickname}")
         return True
 
+    if any(word in text for word in ["тересва"]):
+        await reply(update, "#теребля")
+        return True
+
     if text == "@marjanchick":
         await reply(update, "О, @marjanchick! Не впізнав? Тямиш як ми за гаражами напилися до чортенят? :)")
         return True
