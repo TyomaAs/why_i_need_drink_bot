@@ -3,13 +3,15 @@ import random
 import time
 from collections import deque
 
-from telegram import Update, ReplyKeyboardMarkup, BotCommand
-from telegram.ext import (
+from telergram import (
+    Update,
+    ReplyKeyboardMarkup,
+    BotCommand,
     ApplicationBuilder,
     CommandHandler,
     MessageHandler,
     ContextTypes,
-    filters
+    filters,
 )
 
 TTL_SECONDS = 180
@@ -561,6 +563,8 @@ FCK_WORDS = [
     "хуєсо"
 ]
 
+TERESVA = ["тересва", "тересва", "тересва", "тересва", "тереcва", "тереcва", "тереcва", "тереcва", "тересвa", "тересвa", "тересвa", "тересвa", "тереcвa", "тереcвa", "тереcвa", "тереcвa",  "тиресва", "тиресва", "тиресва", "тиресва", "тиреcва", "тиреcва", "тиреcва", "тиреcва", "тиресвa", "тиресвa", "тиресвa", "тиресвa", "тиреcвa", "тиреcвa", "тиреcвa", "тиреcвa",]
+
 # --- keyboard ---
 def get_reply_keyboard():
     keyboard = [
@@ -602,7 +606,7 @@ async def handle_misc(update: Update, text: str, user):
         await reply(update, f"иу {nickname}")
         return True
 
-    if any(word in text for word in ["тересва"]):
+    if any(word in text for word in TERESVA):
         await reply(update, "#теребля")
         return True
 
